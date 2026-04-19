@@ -1,5 +1,7 @@
 # Payments Service
 
+[![CI](https://github.com/maxrbv/mkk_luna/actions/workflows/ci.yml/badge.svg)](https://github.com/maxrbv/mkk_luna/actions/workflows/ci.yml)
+
 Асинхронный сервис процессинга платежей. Принимает запросы на оплату, обрабатывает их через эмуляцию платёжного шлюза и уведомляет клиента через webhook.
 
 ## Стек
