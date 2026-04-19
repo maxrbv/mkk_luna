@@ -1,0 +1,16 @@
+config.yaml
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+.env
+
+.idea/
+.vscode/
+
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/

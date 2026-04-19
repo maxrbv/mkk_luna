@@ -1,0 +1,37 @@
+app:
+  name: payments-service
+  api_key: change-me-static-api-key
+  log_level: INFO
+  rate_limit_capacity: 20
+  rate_limit_refill_per_second: 10.0
+
+database:
+  dsn: postgresql+asyncpg://payments:payments@postgres:5432/payments
+  pool_size: 10
+  max_overflow: 5
+
+rabbitmq:
+  url: amqp://guest:guest@rabbitmq:5672/
+  payments_exchange: payments
+  payments_queue: payments.new
+  payments_routing_key: payments.new
+  dlq_exchange: payments.dlx
+  dlq_queue: payments.dlq
+  max_delivery_attempts: 3
+  dlq_alert_threshold: 10
+  dlq_check_interval_seconds: 30.0
+
+outbox:
+  poll_interval_seconds: 1.0
+  batch_size: 50
+  max_publish_attempts: 10
+
+payment_processor:
+  min_delay_seconds: 2.0
+  max_delay_seconds: 5.0
+  success_rate: 0.9
+
+webhook:
+  timeout_seconds: 5.0
+  max_retries: 3
+  backoff_base_seconds: 1.0
